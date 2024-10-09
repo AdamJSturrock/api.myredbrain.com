@@ -1,8 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Local Test API",
-        "description": "Simple CRUD RESTful API in Node.js",
+        "title": "My Redbrain API",
+        "description": "Simple CRUD RESTful API to access your My Redbrain data.",
         "version": "0.0.1",
         "license": {
             "name": "Apache License Version 2.0",
@@ -176,9 +176,9 @@
                         "schema": {
                             "type": "object",
                             "properties": {
-                                "userName": {
+                                "name": {
                                     "type": "string",
-                                    "example": "test"
+                                    "example": "John Doe"
                                 },
                                 "email": {
                                     "type": "string",
@@ -187,9 +187,14 @@
                                 "password": {
                                     "type": "string"
                                 },
-                                "role": {
+                                "gh_username": {
                                     "type": "string",
-                                    "example": "user"
+                                    "example": "johndoe"
+                                },
+                                "emailVerified": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "example": "2023-10-09T10:00:00.000Z"
                                 }
                             }
                         }
@@ -245,7 +250,7 @@
                         "description": "Not Found"
                     }
                 }
-            }, 
+            },
             "delete": {
                 "tags": [
                     "user-controller"
@@ -306,9 +311,9 @@
                         "schema": {
                             "type": "object",
                             "properties": {
-                                "userName": {
+                                "name": {
                                     "type": "string",
-                                    "example": "test"
+                                    "example": "John Doe"
                                 },
                                 "email": {
                                     "type": "string",
@@ -317,9 +322,9 @@
                                 "password": {
                                     "type": "string"
                                 },
-                                "role": {
+                                "gh_username": {
                                     "type": "string",
-                                    "example": "user"
+                                    "example": "johndoe"
                                 }
                             }
                         }
@@ -369,29 +374,46 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "type": "integer",
-                    "format": "int64",
-                    "example": 1
-                },
-                "userName": {
                     "type": "string",
-                    "example": "Jimmy"
+                    "example": "123e4567-e89b-12d3-a456-426614174000"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "John Doe"
+                },
+                "username": {
+                    "type": "string",
+                    "example": "johndoe"
+                },
+                "gh_username": {
+                    "type": "string",
+                    "example": "githubuser"
                 },
                 "email": {
                     "type": "string",
                     "example": "test@test.com"
                 },
-                "role": {
+                "emailVerified": {
                     "type": "string",
-                    "example": "user"
+                    "format": "date-time",
+                    "example": "2023-10-09T10:00:00.000Z"
                 },
-                "createdAT": {
-                    "type":"string",
-                    "example": "2022-09-19T09:03:45.281Z"
+                "image": {
+                    "type": "string",
+                    "example": "https://example.com/image.jpg"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2023-10-09T09:03:45.281Z"
                 },
                 "updatedAt": {
-                    "type":"string",
-                    "example": "2022-09-19T09:03:46.865Z"
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2023-10-09T09:03:46.865Z"
                 }
             }
         },
