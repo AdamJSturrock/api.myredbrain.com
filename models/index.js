@@ -13,8 +13,14 @@ const sequelize = new Sequelize({
     password: DB_PASSWORD,
     database: DB_DATABASE,
     dialect: DB_DAILECT,
-    port: DB_PORT
-})
+    port: DB_PORT,
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    }
+});
 
 //checking if connection is done
 sequelize.authenticate().then(() => {
